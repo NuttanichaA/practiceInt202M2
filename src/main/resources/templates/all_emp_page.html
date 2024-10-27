@@ -59,9 +59,13 @@
             </button>
         </div>
     </div>
-    <a class="p-2" th:text="${index}"
-       th:each="index : ${#numbers.sequence(1, pageEmp.totalPages)}"
-       th:href="@{'/employees/page?pageNumber=' + ${index}}"></a>
+    <span th:each="index : ${#numbers.sequence(0, pageEmp.totalPages - 1)}">
+        <a th:href="@{'/employees/page?'(pageNumber=${index})}"
+           th:text="${index+1}" class="p-2"></a>
+    </span>
+<!--    <a class="p-2" th:text="${index}"-->
+<!--       th:each="index : ${#numbers.sequence(1, pageEmp.totalPages)}"-->
+<!--       th:href="@{'/employees/page?pageNumber=' + ${index}}"></a>-->
 </div>
 <button><a href="/employees/add">ADD Employee</a></button>
 <button><a href="/practicehome">Home</a></button>

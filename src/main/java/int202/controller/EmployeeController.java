@@ -95,7 +95,7 @@ public class EmployeeController {
 
     @GetMapping("/page")
     public String getAllProductsPaging(@RequestParam(defaultValue = "0") int pageNumber,
-                                       @RequestParam(defaultValue = "5") int pageSize, Model model){
+                                       @RequestParam(defaultValue = "10") int pageSize, Model model){
         model.addAttribute("pageEmp", service.findAll(PageRequest.of(pageNumber, pageSize)));
         return "all_emp_page";
     }
